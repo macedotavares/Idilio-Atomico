@@ -21,7 +21,7 @@ def parse(start):
 		if symbol in taglist:
 			parse(taglist[symbol])
 
-	print construction		
+	print(construction)
 
 
 parse(S)
