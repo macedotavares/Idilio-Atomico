@@ -10,18 +10,19 @@ NP = ['DT NN' ,'DT JJ NN']
 
 VP = ['sleeps', 'walks']
 
-S = ['NP VP']
+S = ['NP VP', 'NP VP NP']
 
 taglist = {'NN':NN, 'VP':VP, 'DT':DT, 'JJ':JJ, 'NP':NP, 'S':S}
 
-def parse(start):
-	construction = random.choice(start)
-	
+def parse(tag):
+	construction = ''
+	construction = random.choice(tag)
+	print(construction)
 	for symbol in construction.split(' '):
 		if symbol in taglist:
 			parse(taglist[symbol])
 
-	print(construction)
+	
 
 
 parse(S)
