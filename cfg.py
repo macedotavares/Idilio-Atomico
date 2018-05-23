@@ -14,22 +14,25 @@ def expand(symbol):
 	return expanded
 
 def parse(start):
-	construction = expand(start)
-	print ('contruction: '+construction)
-	expanded = ''
+	start = expand(start)
+	construction = start.split(' ')
+	expanded = []
 	
-	for i in range(0,5):
-		print('expanded construction '+str(i)+': '+expanded)
-		split_const=construction.split(' ')
-		for i in range(0,len(split_const)):
-			word=split_const[i]
-			if word in taglist:
-				expansion=(expand(word)+' ')
-				expanded+=expansion
-				print (word+' '+str(i)+' expanded to '+expansion)
-			else:
-				pass
-			construction=expanded
+	for i in range(0,len(construction)):
+		print('expanded construction '+str(i)+': '+str(expanded))
+		expanded = list(construction)
+		
+		word=construction[i]
+		
+		if word in taglist:
+			expansion = expand(word)
+			expanded[i] = str(expansion)
+			print (word+' '+str(i)+' expanded to '+str(expansion))
+		else:
+			pass
+		for i in range(0,len(expanded)):
+			construction += expanded[i]+' '
+
 
 parse('S')
 
