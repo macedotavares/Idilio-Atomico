@@ -1,42 +1,35 @@
 import random
 
-NN = ['man', 'dog', 'box']
+taglist = {
+			'NN':['man', 'dog', 'box'],
+			'VP':['sleeps', 'walks'],
+			'DT':['the', 'a', 'some'],
+			'JJ':['red', 'green', 'large'],
+			'NP':['DT NN' ,'DT JJ NN'],
+			'S':['NP VP NP']
+			}
 
-DT = ['the', 'a', 'some']
-
-JJ = ['red', 'green', 'large']
-
-NP = ['DT NN' ,'DT JJ NN']
-
-VP = ['sleeps', 'walks']
-
-S = ['NP VP', 'NP VP NP', 'NN VP NN']
-
-taglist = {'NN':NN, 'VP':VP, 'DT':DT, 'JJ':JJ, 'NP':NP, 'S':S}
+def expand(symbol):
+	expanded = random.choice(taglist[symbol])
+	return expanded
 
 def parse(start):
-	construction = random.choice(start).split(' ')
-	print(construction)
-	repeat = True
+	construction = expand(start)
+	print ('contruction: '+construction)
+	expanded = ''
 	
-	while repeat:
-		for i in range(0,len(construction)):
-			
-
-			symbol = construction[i]
-			flat=[]			
-			if symbol in taglist:
-				construction[i] = random.choice(taglist[symbol])
-				for x in construction:
-					for y in x.split(' '):
-						flat.append(y)
-				construction = flat
-				
-				
+	for i in range(0,5):
+		print('expanded construction '+str(i)+': '+expanded)
+		split_const=construction.split(' ')
+		for i in range(0,len(split_const)):
+			word=split_const[i]
+			if word in taglist:
+				expansion=(expand(word)+' ')
+				expanded+=expansion
+				print (word+' '+str(i)+' expanded to '+expansion)
 			else:
-				repeat=False
+				pass
+			construction=expanded
 
-	print(construction)
+parse('S')
 
-
-parse(S)
