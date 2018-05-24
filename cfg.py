@@ -1,13 +1,27 @@
 import random
 
 grammar = {
-			'NN':['man', 'dog', 'box'],
-			'VP':['sleeps', 'walks'],
-			'DT':['the', 'a', 'some', 'that'],
-			'JJ':['red', 'green', 'large', 'JJ JJ'],
+			'NN':['man', 'dog', 'park', 'box', 'car', 'pigeon'],
+			'NNS':['telescopes', 'houses', 'roads'],
+			'NNP':['Bill', 'Wendy'],
+			'VI':['sleeps', 'walks'],
+			'VT':['kills', 'touches'],
+			'VD':['gave'],
+			'DT':['the', 'a', 'some', 'that', 'every'],
+			'IN':['in', 'under', 'of', 'on', 'with'],
+			'JJ':['red', 'green', 'large', 'idealistic', 'fast', 'serious', 'clay', 'metal'],
+			'COMP':['that'],
+			'CC': ['and', 'or', 'but'],
+
+			'NBAR':['NN', 'NN NBAR', 'JJ NBAR', 'NBAR NBAR', 'NBAR PP', 'NBAR CC NBAR'],
+			'PP':['IN NP'],
+			'NP':['DT NBAR', 'NP CC NP'],
+			'VP':['VI', 'VT NP', 'VD NP NP', 'VD PP', 'NP NP SBAR'],
 			'NP':['DT NN' ,'DT JJ NN'],
-			'S':['NP VP NP'],
-			'Q':['Does S ?']
+			'A':['NP VT NP'],
+			'Q':['what if A ?'],
+			'S':['NP VP', 'S CC S'],
+			'SBAR':['COMP S','SBAR CC SBAR']
 			}
 
 taglist = grammar.keys()
@@ -23,6 +37,7 @@ def check_for_keys(string):
 def parse(start_symbols):
 	global symbol_list
 	symbol_list=start_symbols.split(' ')
+	print(symbol_list)
 	for i in range(0,len(symbol_list)):
 		if symbol_list[i] in taglist:
 			symbol_list[i]=expand(symbol_list[i])
@@ -32,6 +47,6 @@ def parse(start_symbols):
 	else:
 		print(symbol_list)
 
-parse('Q')
+parse('S')
 
 
