@@ -1,30 +1,28 @@
 import random
 
 grammar = {
-			'NN':['man', 'dog', 'park', 'box', 'car', 'pigeon'],
-			'NNS':['telescopes', 'houses', 'roads'],
-			'NNP':['Bill', 'Wendy'],
-			'VI':['sleeps', 'walks'],
-			'VT':['kills', 'touches'],
-			'VD':['gave'],
-			'DT':['the', 'a', 'some', 'that', 'every'],
-			'IN':['in', 'under', 'of', 'on', 'with'],
-			'JJ':['red', 'green', 'large', 'idealistic', 'fast', 'serious', 'clay', 'metal'],
-			'COMP':['that'],
-			'CC': ['and', 'or', 'but'],
+			'ART_MS':['o', 'aquele', 'um', 'algum', 'certo'],
+			'ART_FS':['a', 'aquela', 'uma', 'alguma'],
+			'N_MS':['homem', 'cão', 'palácio', 'papel', 'falcão', 'bispo'],
+			'N_FS':['mulher', 'princesa', 'rainha', 'pedra'],
+			'ADJ_MS':['feio', 'bonito', 'grande', 'pequeno'],
+			'ADJ_FS':['serena', 'ávida', 'branca'],
+			'VT':['come', 'mata', 'vê', 'ama', 'chama'],
+			'VI':['dorme', 'acorda', 'corre', 'foge'],
+			'CO':['e', 'mas','só que', 'enquanto'],
+			'LOC':['na floresta', 'em alto mar', 'no cimo da montanha'],
+			'INTRO':['alguém diz', 'ouve-se ao longe', 'dizem', 'ouve'],
 
-			'NBAR':['NN', 'NN NBAR', 'JJ NBAR', 'NBAR NBAR', 'NBAR PP', 'NBAR CC NBAR'],
-			'PP':['IN NP'],
-			'NP':['DT NBAR', 'NP CC NP'],
-			'VP':['VI', 'VT NP', 'VD NP NP', 'VD PP', 'NP NP SBAR'],
-			'NP':['DT NN' ,'DT JJ NN'],
-			'A':['NP VT NP'],
-			'Q':['what if A ?'],
-			'S':['NP VP', 'S CC S'],
-			'SBAR':['COMP S','SBAR CC SBAR']
+			'FN':['ART_MS N_MS', 'ART_FS N_FS','ART_MS N_MS ADJ_MS', 'ART_FS N_FS ADJ_FS'],
+			'FV':['VI', 'VT FN', 'VI LOC', 'VT FN LOC'],
+			'QUEST':['será que AFIRM ?', 'AFIRM ?'],
+			'AFIRM':['FN FV'],
+			'F':['INTRO : AFIRM', 'AFIRM', 'QUEST']
+			
 			}
 
 taglist = grammar.keys()
+show_expansions = False
 
 def expand(symbol):
 	expanded = random.choice(grammar[symbol])
@@ -34,10 +32,11 @@ def check_for_keys(string):
 	intersect = set(string.split(' ')).intersection(set(taglist))
 	return intersect
 
-def parse(start_symbols):
+def parse(start_symbol):
 	global symbol_list
-	symbol_list=start_symbols.split(' ')
-	print(symbol_list)
+	symbol_list=start_symbol.split(' ')
+	if show_expansions==True:
+		print(symbol_list) 
 	for i in range(0,len(symbol_list)):
 		if symbol_list[i] in taglist:
 			symbol_list[i]=expand(symbol_list[i])
@@ -47,6 +46,8 @@ def parse(start_symbols):
 	else:
 		print(symbol_list)
 
-parse('S')
+def make(start_symbol,n_sentences):
+	for _ in range(n_sentences):
+		parse(start_symbol)
 
-
+make('F', 5)
