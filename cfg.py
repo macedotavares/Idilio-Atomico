@@ -1,22 +1,35 @@
+# -*- coding: utf-8 -*-
+
 import random
 
+substitutions = {
+			' . ':'. ',
+			' ?':'?',
+			' : ':': '
+			}
+
 grammar = {
-			'ART_MS':['o', 'aquele', 'um', 'algum', 'certo'],
-			'ART_FS':['a', 'aquela', 'uma', 'alguma'],
+			'ARTD_MS':['o', 'aquele', 'um'],
+			'ARTI_MS':['um', 'algum', 'certo'],
+			'ARTD_FS':['a', 'aquela', 'uma', 'alguma'],
+			'ARTI_FS':['uma', 'alguma', 'certa'],
 			'N_MS':['homem', 'cão', 'palácio', 'papel', 'falcão', 'bispo'],
 			'N_FS':['mulher', 'princesa', 'rainha', 'pedra'],
 			'ADJ_MS':['feio', 'bonito', 'grande', 'pequeno'],
 			'ADJ_FS':['serena', 'ávida', 'branca'],
-			'VT':['come', 'mata', 'vê', 'ama', 'chama'],
-			'VI':['dorme', 'acorda', 'corre', 'foge'],
+			'VTRA':['come', 'mata', 'vê', 'ama', 'chama'],
+			'VINT':['dorme', 'acorda', 'corre', 'foge'],
+			'VINF':['ver', 'tocar', 'ouvir'],
+			'N_IND':['mágoas', 'nuvens', 'sinfonias'],
 			'CO':['e', 'mas','só que', 'enquanto'],
 			'LOC':['na floresta', 'em alto mar', 'no cimo da montanha'],
 			'INTRO':['alguém diz', 'ouve-se ao longe', 'dizem', 'ouve'],
+			'USO': ['VINF N_IND'],
 
-			'FN':['ART_MS N_MS', 'ART_FS N_FS','ART_MS N_MS ADJ_MS', 'ART_FS N_FS ADJ_FS'],
-			'FV':['VI', 'VT FN', 'VI LOC', 'VT FN LOC'],
+			'FN':['ARTD_MS N_MS', 'ARTD_FS N_FS','ARTI_MS N_MS ADJ_MS', 'ARTI_FS N_FS ADJ_FS'],
+			'FV':['VINT', 'VTRA FN', 'VINT LOC', 'VTRA FN LOC'],
 			'QUEST':['será que AFIRM ?', 'AFIRM ?'],
-			'AFIRM':['FN FV'],
+			'AFIRM':['FN FV','FN encontra FN que serve para USO'],
 			'F':['INTRO : AFIRM', 'AFIRM', 'QUEST']
 			
 			}
@@ -33,6 +46,7 @@ def check_for_keys(string):
 	return intersect
 
 def parse(start_symbol):
+	global sentence
 	global symbol_list
 	symbol_list=start_symbol.split(' ')
 	if show_expansions==True:
@@ -44,10 +58,21 @@ def parse(start_symbol):
 	if check_for_keys(symbol_list):
 		parse(symbol_list)
 	else:
-		print(symbol_list)
+		sentence = symbol_list
+
+def clean(text):
+	for pair in substitutions:
+		text = text.replace(pair,substitutions[pair])
+	text = text.capitalize()
+	if text[-1:] != ('?' or '!'):
+		text += '.'
+	return text
 
 def make(start_symbol,n_sentences):
+	global sentence
 	for _ in range(n_sentences):
 		parse(start_symbol)
+		sentence = clean(sentence)
+		print(sentence)
 
 make('F', 5)
