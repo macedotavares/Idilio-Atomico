@@ -9,14 +9,14 @@ substitutions = {
 			}
 
 grammar = {
-			'ARTD_MS':['o', 'aquele'],
+			'ARTD_MS':['o', 'este', 'aquele'],
 			'ARTI_MS':['um', 'certo'],
 			'ARTD_FS':['a', 'aquela'],
 			'ARTI_FS':['uma', 'alguma', 'certa'],
-			'N_MS':['homem', 'cão', 'palácio', 'papel', 'falcão', 'bispo'],
-			'N_FS':['mulher', 'princesa', 'rainha', 'pedra'],
-			'ADJ_MS':['feio', 'bonito', 'grande', 'pequeno'],
-			'ADJ_FS':['serena', 'ávida', 'branca'],
+			'N_MS':['livro', 'homem', 'cão', 'palácio', 'papel', 'falcão', 'bispo','mágico','carrasco','pai', 'guerreiro'],
+			'N_FS':['mulher', 'princesa', 'rainha', 'pedra', 'águia', 'filha', 'janela', 'esfera'],
+			'ADJ_MS':['feio', 'bonito', 'grande', 'pequeno', 'velho', 'novo', 'empoeirado'],
+			'ADJ_FS':['serena', 'ávida', 'branca', 'verde', 'linda'],
 			'VTRA':['come', 'mata', 'vê', 'ama', 'chama', 'ouve', 'larga'],
 			'VINT':['dorme', 'acorda', 'corre', 'foge', 'chora'],
 			'VPLU':['dormem', 'choram', 'planam', 'caem', 'murcham'],
