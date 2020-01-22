@@ -30,7 +30,7 @@ grammar = {
 			'FV':['VINT', 'VTRA FN', 'VINT LOC', 'VTRA FN LOC'],
 			'QUEST':['será que AFIRM ?', 'AFIRM ?'],
 			'AFIRM':['FN FV','FN encontra FN que serve para USO'],
-			'F':['INTRO : AFIRM', 'AFIRM', 'QUEST']
+			'F':['INTRO : AFIRM', 'AFIRM']
 			
 			}
 
