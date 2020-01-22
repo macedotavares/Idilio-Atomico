@@ -24,13 +24,16 @@ grammar = {
 			'CO':['e', 'mas','só que', 'enquanto'],
 			'LOC':['na floresta', 'em alto mar', 'no cimo da montanha'],
 			'INTRO':['alguém diz', 'ouve-se ao longe', 'dizem', 'ouve'],
+			
 			'USO': ['VINF N_IND'],
 
 			'FN':['ARTD_MS N_MS', 'ARTD_FS N_FS','ARTI_MS N_MS ADJ_MS', 'ARTI_FS N_FS ADJ_FS'],
 			'FV':['VINT', 'VTRA FN', 'VINT LOC', 'VTRA FN LOC'],
+			'AFIRM':['FN FV'],
 			'QUEST':['será que AFIRM ?', 'AFIRM ?'],
 			'AFIRM':['FN FV','FN encontra FN que serve para USO'],
 			'F':['INTRO : AFIRM', 'AFIRM']
+			'F':['AFIRM']
 			
 			}
 
