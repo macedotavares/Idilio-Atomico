@@ -1,0 +1,183 @@
+{
+   "ARTD":[
+      "the"
+   ],
+   "ARTI":[
+      "a"
+   ],
+
+   "NS":[
+      "book",
+      "tree",
+      "tower",
+      "sword",
+      "family",
+      "sister",
+      "man",
+      "dog",
+      "palace",
+      "paper",
+      "hawk",
+      "priest",
+      "magician",
+      "executioner",
+      "father",
+      "warrior",
+      "woman",
+      "princess",
+      "queen",
+      "stone",
+      "eagle",
+      "daughter",
+      "window",
+      "orb",
+      "ship",
+      "dress",
+      "crown",
+      "spirit",
+      "the ghost of a NS"
+   ],
+   "NP":[
+      "books",
+      "families",
+      "sisters",
+      "men",
+      "dogs",
+      "papers",
+      "hawks",
+      "priests",
+      "magicians",
+      "soldiers",
+      "fathers",
+      "warriors",
+      "women",
+      "queens",
+      "stones",
+      "eagles",
+      "daughters",
+      "windows",
+      "orbs",
+      "sorrows",
+      "clouds",
+      "birds",
+      "walls",
+      "ghosts of NP"
+   ],
+   "ADJ":[
+      "ugly",
+      "unborn",
+      "invisible",
+      "pretty",
+      "big",
+      "small",
+      "old",
+      "young",
+      "evil",
+      "magical",
+      "new",
+      "dusty",
+      "calm",
+      "avid",
+      "white",
+      "green",
+      "beautiful",
+      "ghostly"
+   ],
+   "VTRA":[
+      "walks towards",
+      "flies towards",
+      "leaves",
+      "eats",
+      "kills",
+      "sees",
+      "loves",
+      "calls",
+      "learns about",
+      "hears",
+      "sets fire to",
+      "drops",
+      "knows"
+   ],
+   "VINT":[
+      "sleeps",
+      "wakes up",
+      "runs",
+      "flees",
+      "weeps"
+   ],
+   "VINF":[
+      "sleep",
+      "weep",
+      "glide",
+      "fall",
+      "wither",
+      "fly"
+   ],
+   "VFUT":[
+      "will VINF",
+      "shall VINF"
+   ],
+
+   "VTRAINF":[
+      "see",
+      "touch",
+      "hear",
+      "understand",
+      "talk to"
+   ],
+   "CO":[
+      "and",
+      "but",
+      "however",
+      "while"
+   ],
+   "LOC":[
+      "in the forest",
+      "in high sea",
+      "on the ocean floor",
+      "floating in mid air",
+      "in the center of the room",
+      "by the river",
+      "in the clouds",
+      "at the top of the mountain",
+      "in the middle of battle"
+   ],
+   "INTRO":[
+      "you hear faintly:",
+      "a NS says that",
+      "the NP say that",
+      "they say that",
+      "listen:"
+   ],
+   "N":[
+      "NS",
+      "NP",
+      "multitude of NP"
+   ],
+   "FN":[
+      "ARTD NS",
+      "ARTI ADJ NS"
+   ],
+   "FV":[
+      "VINT",
+      "VTRA FN",
+      "VINT LOC",
+      "VTRA FN LOC"
+   ],
+   "QUEST":[
+      "is it any wonder that AFFIRM ?",
+      "why would a NS VTRAINF FN ?"
+   ],
+   "AFFIRM":[
+      "FN FV",
+      "FN finds FN that allows one to VTRAINF NP",
+      "FN VFUT",
+      "FN has the ability to VTRAINF NP",
+      "FN would like to VINF"
+   ],
+   "F":[
+      "INTRO AFFIRM",
+      "AFFIRM",
+      "QUEST"
+   ]
+}

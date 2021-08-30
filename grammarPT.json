@@ -1,0 +1,137 @@
+{
+   "ARTD_MS":[
+      "o",
+      "este",
+      "aquele"
+   ],
+   "ARTI_MS":[
+      "um",
+      "certo"
+   ],
+   "ARTD_FS":[
+      "a",
+      "aquela"
+   ],
+   "ARTI_FS":[
+      "uma",
+      "alguma",
+      "certa"
+   ],
+   "N_MS":[
+      "livro",
+      "homem",
+      "cão",
+      "palácio",
+      "papel",
+      "falcão",
+      "bispo",
+      "mágico",
+      "carrasco",
+      "pai",
+      "guerreiro"
+   ],
+   "N_FS":[
+      "mulher",
+      "princesa",
+      "rainha",
+      "pedra",
+      "águia",
+      "filha",
+      "janela",
+      "esfera"
+   ],
+   "ADJ_MS":[
+      "feio",
+      "bonito",
+      "grande",
+      "pequeno",
+      "velho",
+      "novo",
+      "empoeirado"
+   ],
+   "ADJ_FS":[
+      "serena",
+      "ávida",
+      "branca",
+      "verde",
+      "linda"
+   ],
+   "VTRA":[
+      "come",
+      "mata",
+      "vê",
+      "ama",
+      "chama",
+      "ouve",
+      "larga"
+   ],
+   "VINT":[
+      "dorme",
+      "acorda",
+      "corre",
+      "foge",
+      "chora"
+   ],
+   "VPLU":[
+      "dormem",
+      "choram",
+      "planam",
+      "caem",
+      "murcham"
+   ],
+   "VINF":[
+      "ver",
+      "tocar",
+      "ouvir"
+   ],
+   "N_IND":[
+      "mágoas",
+      "nuvens",
+      "sinfonias"
+   ],
+   "CO":[
+      "e",
+      "mas",
+      "só que",
+      "enquanto"
+   ],
+   "LOC":[
+      "na floresta",
+      "em alto mar",
+      "no cimo da montanha"
+   ],
+   "INTRO":[
+      "alguém diz",
+      "ouve-se ao longe",
+      "dizem",
+      "ouve"
+   ],
+   "USO":[
+      "VINF N_IND"
+   ],
+   "FN":[
+      "ARTD_MS N_MS",
+      "ARTD_FS N_FS",
+      "ARTI_MS N_MS ADJ_MS",
+      "ARTI_FS N_FS ADJ_FS"
+   ],
+   "FV":[
+      "VINT",
+      "VTRA FN",
+      "VINT LOC",
+      "VTRA FN LOC"
+   ],
+   "QUEST":[
+      "será que AFIRM ?",
+      "AFIRM ?"
+   ],
+   "AFIRM":[
+      "FN FV",
+      "FN encontra FN que serve para USO"
+   ],
+   "F":[
+      "INTRO : AFIRM",
+      "AFIRM",
+      "QUEST"
+   ]
+}

@@ -1,42 +1,14 @@
 # -*- coding: utf-8 -*-
 
-import random
+import random, json, re
 
-substitutions = {
-			' . ':'. ',
-			' ?':'?',
-			' : ':': '
-			}
-
-grammar = {
-			'ARTD_MS':['o', 'este', 'aquele'],
-			'ARTI_MS':['um', 'certo'],
-			'ARTD_FS':['a', 'aquela'],
-			'ARTI_FS':['uma', 'alguma', 'certa'],
-			'N_MS':['livro', 'homem', 'cão', 'palácio', 'papel', 'falcão', 'bispo','mágico','carrasco','pai', 'guerreiro'],
-			'N_FS':['mulher', 'princesa', 'rainha', 'pedra', 'águia', 'filha', 'janela', 'esfera'],
-			'ADJ_MS':['feio', 'bonito', 'grande', 'pequeno', 'velho', 'novo', 'empoeirado'],
-			'ADJ_FS':['serena', 'ávida', 'branca', 'verde', 'linda'],
-			'VTRA':['come', 'mata', 'vê', 'ama', 'chama', 'ouve', 'larga'],
-			'VINT':['dorme', 'acorda', 'corre', 'foge', 'chora'],
-			'VPLU':['dormem', 'choram', 'planam', 'caem', 'murcham'],
-			'VINF':['ver', 'tocar', 'ouvir'],
-			'N_IND':['mágoas', 'nuvens', 'sinfonias'],
-			'CO':['e', 'mas','só que', 'enquanto'],
-			'LOC':['na floresta', 'em alto mar', 'no cimo da montanha'],
-			'INTRO':['alguém diz', 'ouve-se ao longe', 'dizem', 'ouve'],
-			'USO': ['VINF N_IND'],
-
-			'FN':['ARTD_MS N_MS', 'ARTD_FS N_FS','ARTI_MS N_MS ADJ_MS', 'ARTI_FS N_FS ADJ_FS'],
-			'FV':['VINT', 'VTRA FN', 'VINT LOC', 'VTRA FN LOC'],
-			'QUEST':['será que AFIRM ?', 'AFIRM ?'],
-			'AFIRM':['FN FV','FN encontra FN que serve para USO'],
-			'F':['INTRO : AFIRM', 'AFIRM', 'QUEST']
-
-			}
+with open('grammar.json') as json_file:
+    grammar = json.load(json_file)
+	
+with open('substitutions.json') as json_file:
+    substitutions = json.load(json_file)
 
 taglist = grammar.keys()
-show_expansions = False
 
 def expand(symbol):
 	expanded = random.choice(grammar[symbol])
@@ -50,8 +22,6 @@ def parse(start_symbol):
 	global sentence
 	global symbol_list
 	symbol_list=start_symbol.split(' ')
-	if show_expansions==True:
-		print(symbol_list)
 	for i in range(0,len(symbol_list)):
 		if symbol_list[i] in taglist:
 			symbol_list[i]=expand(symbol_list[i])
@@ -63,7 +33,7 @@ def parse(start_symbol):
 
 def clean(text):
 	for pair in substitutions:
-		text = text.replace(pair,substitutions[pair])
+		text = re.sub(pair,substitutions[pair], text)
 	text = text.capitalize()
 	if text[-1:] != ('?' or '!'):
 		text += '.'
@@ -74,6 +44,6 @@ def make(start_symbol,n_sentences):
 	for _ in range(n_sentences):
 		parse(start_symbol)
 		sentence = clean(sentence)
-		print(sentence)
+		print(sentence.encode("utf-8"))
 
-make('F', 5)
+make('F', 10)
