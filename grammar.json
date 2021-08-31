@@ -36,6 +36,7 @@
       "father",
       "family",
       "executioner",
+      "eye",
       "eagle",
       "dress",
       "dog",
@@ -43,12 +44,15 @@
       "clock",
       "crown",
       "book",
+      "beggar",
+      "fool",
       "ghost of a NS",
       "shadow of a NS"
    ],
    "NP":[
       "women",
       "windows",
+      "souls",
       "warriors",
       "walls",
       "stones",
@@ -80,6 +84,9 @@
       "white",
       "immortal",
       "vengeful",
+      "black",
+      "wooden",
+      "crystal",
       "sublime",
       "unborn",
       "ugly",
@@ -102,11 +109,12 @@
    "VTRA":[
       "walks towards",
       "flies towards",
-      "leaves",
+      "left",
       "eats",
       "kills",
       "sees",
-      "loves",
+      "holds",
+      "loved",
       "calls",
       "learns about",
       "hears",
@@ -197,9 +205,9 @@
       "FN and FN became best friends",
       "FN begins to VINF",
       "LOC , FN is dreaming about FN",
-      "There is ARTD NS that FV",
-      "There is ARTI NS with FN inside",
-      "FN is watching FN  and it seems that it will VINF"
+      "There is ARTI NS that FV",
+      "There is ARTI NS with ARTI NS inside",
+      "FN is watching FN and it seems that someone will VINF"
       
    ],
    "F":[
