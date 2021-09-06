@@ -11,6 +11,8 @@ def expand(symbol): # Randomly choose a possible expansion from the grammar
 	expanded = random.choice(grammar[symbol])
 	return expanded
 
+#TODO: Assing different probabilities to wach symbol.
+
 def check_for_symbols(string):
 	symbols_present = set(string.split(' ')).intersection(set(symbols)) # Check if there are any symbols left in the expanded string
 	return symbols_present
@@ -32,7 +34,7 @@ def parse(start_symbol):
 
 def clean(text): # I'm not proud of this
 	for pair in substitutions:
-		text = re.sub(pair,substitutions[pair], text) # But regex is so cool.
+		text = re.sub(pair,substitutions[pair], text) # "Now you have two problems."
 	text = text.capitalize()
 	if text[-1:] != ('?' or '!'):
 		text += '.'
@@ -50,3 +52,4 @@ substitutions = load_dict('substitutions.json') # Load a substitutions file
 symbols = grammar.keys() # Build a list of all the symbols in the grammar
 
 make('F', 20)
+
