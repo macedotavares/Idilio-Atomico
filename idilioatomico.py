@@ -11,7 +11,7 @@ def expand(symbol): # Randomly choose a possible expansion from the grammar
 	expanded = random.choice(grammar[symbol])
 	return expanded
 
-#TODO: Assing different probabilities to wach symbol.
+#TODO: Assign different probabilities to each symbol.
 
 def check_for_symbols(string):
 	symbols_present = set(string.split(' ')).intersection(set(symbols)) # Check if there are any symbols left in the expanded string
